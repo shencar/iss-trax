@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "name": "Kourou",
+    "lat": 5.2,
+    "lon": -52.7,
+    "alt": 0
+  },
+  {
+    "id": 2,
+    "name": "Vandenberg",
+    "lat": 34.7,
+    "lon": -120.6,
+    "alt": 0
+  },
+  {
+    "id": 3,
+    "name": "Cape Canaveral",
+    "lat": 28.6,
+    "lon": -80.6,
+    "alt": 0
+  },
+  {
+    "id": 4,
+    "name": "Wallops Island",
+    "lat": 37.9,
+    "lon": -75.5,
+    "alt": 0
+  },
+  {
+    "id": 5,
+    "name": "Plesetsk",
+    "lat": 62.9,
+    "lon": 40.5,
+    "alt": 0
+  },
+  {
+    "id": 6,
+    "name": "Baikonur",
+    "lat": 45.9,
+    "lon": 63.3,
+    "alt": 0
+  },
+  {
+    "id": 7,
+    "name": "Taiyuan",
+    "lat": 37.9,
+    "lon": 112.6,
+    "alt": 0
+  },
+  {
+    "id": 8,
+    "name": "Xichang",
+    "lat": 27.9,
+    "lon": 102.2,
+    "alt": 0
+  },
+  {
+    "id": 9,
+    "name": "Jiuquan",
+    "lat": 40.9,
+    "lon": 98.3,
+    "alt": 0
+  },
+  {
+    "id": 10,
+    "name": "Wenchang",
+    "lat": 19.7,
+    "lon": 110.0,
+    "alt": 0
+  },
+  {
+    "id": 11,
+    "name": "Shahrud",
+    "lat": 36.4,
+    "lon": 54.9,
+    "alt": 0
+  },
+  {
+    "id": 12,
+    "name": "Svobodny",
+    "lat": 67.5,
+    "lon": 64.0,
+    "alt": 0
+  },
+  {
+    "id": 13,
+    "name": "Kapustin Yar",
+    "lat": 48.5,
+    "lon": 45.7,
+    "alt": 0
+  },
+  {
+    "id": 14,
+    "name": "Plesetsk",
+    "lat": 62.9,
+    "lon": 40.5,
+    "alt": 0
+  },
+  {
+    "id": 15,
+    "name": "Kodiak",
+    "lat": 57.8,
+    "lon": -152.4,
+    "alt": 0
+  },
+  {
+    "id": 16,
+    "name": "Kwajalein",
+    "lat": 8.7,
+    "lon": 167.7,
+    "alt": 0
+  },
+  {
+    "id": 17,
+    "name": "Hawaii",
+    "lat": 19.7,
+    "lon": -155.1,
+    "alt": 0
+  },
+  {
+    "id": 18,
+    "name": "Ascension Island",
+    "lat": -7.9,
+    "lon": -14.4,
+    "alt": 0
+  },
+  {
+    "id": 19,
+    "name": "South Pole",
+    "lat": -90.0,
+    "lon": 0.0,
+    "alt": 0
+  },
+  {
+    "id": 20,
+    "name": "McMurdo Station",
+    "lat": -77.8,
+    "lon": 166.7,
+    "alt": 0
+  },
+  {
+    "id": 21,
+    "name": "Amundsen-Scott South Pole Station",
+    "lat": -90.0,
+    "lon": 0.0,
+    "alt": 0
+  },
+  {
+    "id": 22,
+    "name": "Vostok Station",
+    "lat": -78.4,
+    "lon": 106.8,
+    "alt": 0
+  },
+  {
+    "id": 23,
+    "name": "Mawson Station",
+    "lat": -67.6,
+    "lon": 62.9,
+    "alt": 0
+  },
+  {
+    "id": 24,
+    "name": "Davis Station",
+    "lat": -68.6,
+    "lon": 77.1,
+    "alt": 0
+  },
+  {
+    "id": 25,
+    "name": "Dumont d'Urville Station",
+    "lat": -66.7,
+    "lon": 140.0,
+    "alt": 0
+  }
+]
