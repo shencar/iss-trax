@@ -70,20 +70,17 @@ function drawISSShadow (latitude, longitude) {
     shapeLayer.addRenderable(circle);
 }
 
-function updateISSShape (latitude, longitude) {
-
-}
-
 function updateISSModel (latitude, longitude, altitude) {
     currentISSLocation.lat = latitude;
     currentISSLocation.lon = longitude;
     currentISSLocation.alt = altitude;
-
-    ISSModelLayer.renderables[0].position = new WorldWind.Position(latitude, longitude, altitude * 1000 * ALT_VIZ_FACTOR);
-    ISSModelLayer.renderables[0].xRotation = ISSModelLayer.renderables[0].xRotation + .1 % 360;
-    ISSModelLayer.renderables[0].yRotation = ISSModelLayer.renderables[0].yRotation + .1 % 360;
-    ISSModelLayer.renderables[0].zRotation = ISSModelLayer.renderables[0].zRotation + .1 % 360;
-    wwd.redraw();
+    if (ISSModelLayer && ISSModelLayer.renderables.length > 0) {
+        ISSModelLayer.renderables[0].position = new WorldWind.Position(latitude, longitude, altitude * 1000 * ALT_VIZ_FACTOR);
+        ISSModelLayer.renderables[0].xRotation = ISSModelLayer.renderables[0].xRotation + .1 % 360;
+        ISSModelLayer.renderables[0].yRotation = ISSModelLayer.renderables[0].yRotation + .1 % 360;
+        ISSModelLayer.renderables[0].zRotation = ISSModelLayer.renderables[0].zRotation + .1 % 360;
+        wwd.redraw();
+    }
 }
 
 function fetchNextPass (lat, lon, cb) {
