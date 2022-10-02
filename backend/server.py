@@ -7,6 +7,7 @@ from typing import Optional
 import requests
 import uvicorn
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pytz import timezone
 from skyfield.api import load
@@ -19,6 +20,7 @@ from iss_data import ISSData
 def setup_app():
     logging.info('Setting Up...')
     _app = FastAPI()
+
     global iss_data
     iss_data = ISSData('data/zarya.tle')
     global iss
@@ -39,19 +41,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get('/version')
+@app.get('/api/version')
 async def version():
     return {
         'version': app.version
     }
 
-@app.get('/health')
+@app.get('/api/health')
 async def health():
     return {
         'status': 'OK'
     }
 
-@app.get('/position')
+@app.get('/api/position')
 async def get_location(timestamp: float):
     dt = datetime.fromtimestamp(timestamp)
     lat, lon, height = app.iss_data.get_approximate_position(dt)
@@ -66,21 +68,15 @@ def _request_positions(ts_list):
     return requests.get(
         f'https://api.wheretheiss.at/v1/satellites/25544/positions?timestamps={ts_list}&units=km').json()
 
-
-@app.get('/positions')
-async def get_positions(ts: int):
-    ts_list = ','.join(map(str, range(ts - 45 * 60, ts + 45 * 60, int(90 * 60 / 10))))
-    return _request_positions(ts_list)
-
-@app.get('/v2/positions')
+@app.get('/api/positions')
 async def get_positions_v2(ts: int):
     return iss_data.get_broad_positions(ts)
 
-@app.get('/current')
+@app.get('/api/current')
 async def get_current():
     return _request_positions(int(datetime.now().timestamp()))
 
-@app.get('/visibility')
+@app.get('/api/visibility')
 async def get_visibility(lat: float, lon: float):
     bluffton = wgs84.latlon(lat, lon)
     ts = load.timescale()
@@ -94,7 +90,7 @@ async def get_visibility(lat: float, lon: float):
     return res[:5]
 
 
-@app.get('/ground-stations')
+@app.get('/api/ground-stations')
 async def ground_station_is_observable(timestamp: Optional[float] = None):
     if timestamp is None:
         timestamp = datetime.now(tz=timezone('GMT')).timestamp()
@@ -109,7 +105,10 @@ async def ground_station_is_observable(timestamp: Optional[float] = None):
         doc['visible'] =  bool(alt.degrees > 0)
     return ground_stations
 
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
+
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
-    uvicorn.run('server:app', host='0.0.0.0', port=4000, reload=True)
+    uvicorn.run('server:app', host='0.0.0.0', port=80, reload=True, limit_max_requests=1000)
+
