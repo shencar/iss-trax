@@ -110,5 +110,5 @@ app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
-    uvicorn.run('server:app', host='0.0.0.0', port=80, reload=True, limit_max_requests=1000)
+    uvicorn.run('server:app', host='0.0.0.0', port=4000, reload=True, limit_max_requests=1000)
 
