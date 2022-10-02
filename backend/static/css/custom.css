@@ -1,0 +1,53 @@
+body {
+    background-color: #1a1e21;
+}
+
+#search-container {
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    background-color: #1a1e21;
+    tab-index: 9999;
+}
+
+.search-box {
+    min-width: 500px;
+}
+
+#next-pass {
+    opacity: 1;
+    color: white;
+}
+
+#next-pass > ul {
+    list-style-type: none;
+}
+
+#next-pass > ul > li {
+    padding: 5px;
+}
+
+#jump-to-iss-location {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    tab-index: 9999;
+}
+
+#viz-container {
+    width: 100%;
+    height: calc(100% - 120px);
+}
+
+#slide-container {
+    width: 100%;
+    background-color: #1a1e21;
+}
+
+.slide-container-hide {
+    visibility: hidden;
+}
+
+#range-value {
+    color: white;
+}
